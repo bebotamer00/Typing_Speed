@@ -129,22 +129,17 @@ function setWord() {
 diffLevels.forEach((ele) => {
   ele.addEventListener("click", function (e) {
     window.localStorage.setItem("checkValue", e.currentTarget.value);
-    window.localStorage.setItem("scoreValue", e.currentTarget.scoreGot);
   });
 });
 
 if (window.localStorage.getItem("checkValue")) {
   if (window.localStorage.getItem("checkValue") === "easy") {
     timeLeft.innerHTML = Easy;
-    scoreGot.innerHTML = e.currentTarget.scoreGot;
   } else if (window.localStorage.getItem("checkValue") === "meduim") {
     timeLeft.innerHTML = Meduim;
-    scoreGot.innerHTML = e.currentTarget.scoreGot;
   } else if (window.localStorage.getItem("checkValue") === "hard") {
     timeLeft.innerHTML = Hard;
-    scoreGot.innerHTML = e.currentTarget.scoreGot;
   }
 } else {
   timeLeft.innerHTML = Meduim;
-  scoreGot.innerHTML = e.currentTarget.scoreGot;
 }

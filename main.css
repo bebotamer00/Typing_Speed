@@ -73,7 +73,7 @@ button {
     display: flex;
     justify-content: space-between;
 }
-@media (max-width: 413px) {
+@media (max-width: 450px) {
     .control {
         display: block;
         margin: 20px;

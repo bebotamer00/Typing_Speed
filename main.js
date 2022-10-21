@@ -54,8 +54,10 @@ let theWords = [
 const Easy = 30;
 const Meduim = 20;
 const Hard = 10;
-
-let startButton = document.querySelector("#start");
+let screenLock = document.querySelector(".screen-lock");
+let counter = document.querySelector(".counter");
+let count = document.querySelector(".count");
+let startButton = document.querySelector(".start");
 let theWord = document.querySelector("#words");
 let theInput = document.querySelector("#input");
 let timeLeft = document.querySelector("#sec");
@@ -67,21 +69,32 @@ let levelMeduim = document.querySelector("#meduim");
 let levelHard = document.querySelector("#hard");
 let againButton = document.querySelector("#again");
 let diffLevels = document.querySelectorAll("button");
-
 timeLeft.innerHTML = Meduim;
 scoreTotal.innerHTML = theWords.length;
 againButton.disabled = "none";
+// theInput.disabled = true;
 // To Start The Game
 startButton.onclick = function () {
+  counterGame();
   this.remove();
-  theInput.focus();
-  theOpreation();
-  startPlay();
+  screenLock.remove();
+  setTimeout(startPlay, 3000);
   addEventListener("input", setWord);
-  levelEasy.disabled = false;
-  levelMeduim.disabled = false;
-  levelHard.disabled = false;
 };
+
+function counterGame() {
+  let start = setInterval(() => {
+    count.innerHTML--;
+    if (count.innerHTML === "0") {
+      clearInterval(start);
+      counter.remove();
+      theInput.focus();
+      theOpreation();
+      theInput.disabled = false;
+    }
+  }, 1000);
+}
+
 // To You Try Again
 againButton.onclick = function () {
   theInput.focus();
@@ -92,15 +105,14 @@ againButton.onclick = function () {
   againButton.disabled = "none";
   timeLeft.innerHTML = Meduim;
   scoreGot.innerHTML = 0;
-  scoreGot.innerHTML = window.localStorage.getItem(scoreGot);
 };
 // Get Random Word
 function theOpreation() {
   let randWord = theWords[Math.floor(Math.random() * theWords.length)];
   let wordIndex = theWords.indexOf(randWord);
+  theWord.innerHTML = randWord;
   // Delete The Word In The Array
   theWords.splice(wordIndex, 1);
-  theWord.innerHTML = randWord;
 }
 // Set The Time
 function startPlay() {
@@ -113,6 +125,7 @@ function startPlay() {
     }
   }, 1000);
 }
+
 // Set The Cases Of Word
 function setWord() {
   if (theInput.value.toLowerCase() === theWord.innerHTML.toLowerCase()) {

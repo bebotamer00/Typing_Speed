@@ -1,96 +1,221 @@
 * {
-    box-sizing: border-box;
-    margin: 0;
+  box-sizing: border-box;
+  margin: 0;
+}
+body {
+  background: url(images/WhatsApp\ Image\ 2022-10-21\ at\ 15.16.12.jpg)
+    no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
+.screen-lock {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 5;
+  background-color: rgba(244, 251, 255, 0.98);
+}
+
+.screen-lock .start {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgb(147, 237, 57);
+  color: black;
+  padding: 15px;
+  width: 15%;
+  font-size: 20px;
+  font-weight: 600;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+.screen-lock .difficulty {
+  text-align: center;
+}
+.screen-lock .difficulty .dif {
+  font-size: 25px;
+  font-weight: bold;
+  color: black;
+}
+button {
+  background-color: white;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin: 15px 0px;
+}
+.screen-lock .difficulty #easy {
+  background-color: rgb(224, 205, 205);
+  color: black;
+}
+.screen-lock .difficulty #easy:hover {
+  background-color: aliceblue;
+}
+.screen-lock .difficulty #meduim {
+  background-color: rgb(112, 105, 242);
+  color: white;
+}
+.screen-lock .difficulty #meduim:hover {
+  background-color: rgb(58, 50, 206);
+}
+.screen-lock .difficulty #hard {
+  background-color: rgb(225, 50, 50);
+  color: white;
+}
+.screen-lock .difficulty #hard:hover {
+  background-color: rgb(163, 7, 7);
+}
+
+.counter .count {
+  font-size: 50px;
+  margin-bottom: 20px;
+}
 .game {
-    background-color: rgb(246, 250, 250);
-    min-height: 100vh;
-    text-align: center;
+  /* margin-top: 50px; */
+  min-height: 100vh;
+  text-align: center;
 }
+
 .container {
-    margin: auto;
-    max-width: 60%;
-}
-@media (max-width: 767px) {
-    .container {
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 768px) {
-    .container {
-        max-width: 100%;
-    }
-}
-
-@media (min-width: 992px) {
-    .container {
-        max-width: 70%;
-    }
+  margin: auto;
+  max-width: 60%;
 }
 
 .name {
-    background: rgb(9, 58, 58);
-    padding: 20px;
-    font-size: 30px;
-    font-weight: bold;
-    color: white;
-}
-button {
-    background-color: white;
-    font-size: 20px;
-    font-weight: bold;
-    border-radius: 6px;
-    margin: 15px 0px;
+  padding: 20px;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: black;
+  font-style: italic;
 }
 .words {
-    font-size: 30px;
-    font-weight: bold;
-    border-radius: 6px;
-    margin-bottom: 7px;
+  font-size: 30px;
+  font-weight: bold;
+  border-radius: 6px;
+  margin-bottom: 7px;
+  color: black;
 }
 .input {
-    border-radius: 7px;
-    display: block;
-    width: 100%;
-    height: 50px;
-    text-align: center;
-    font-weight: bold;
-    color: rgb(9, 58, 58);
-    font-size: 25px;
-    padding: 6px;
-    text-transform: capitalize;
+  border-radius: 7px;
+  display: block;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 6px;
+  text-transform: capitalize;
 }
 .control {
-    background:rgb(9, 58, 58) ;
-    color: white;
-    padding: 10px;
-    margin: 15px;
-    border-radius: 20px;
-    font-weight: bold;
-    font-size: 20px;
-    display: flex;
-    justify-content: space-between;
-}
-@media (max-width: 450px) {
-    .control {
-        display: block;
-        margin: 20px;
-        padding: 15px;
-        background-color: rgb(246, 250, 250);
-        color: rgb(9, 58, 58);
-    }
+  background-color: #ebcfab;
+  color: black;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  font-size: 20px;
+  display: flex;
+  justify-content: space-between;
 }
 .gpa {
-    font-size: 50px;
-    color: rgb(9, 58, 58);
-    font-weight: bold;
-    padding: 10px;
+  font-size: 50px;
+  font-weight: bold;
+  padding: 10px;
 }
 #again {
-    display: flex;
-    justify-content: space-between;
-    float: right;
-    border-radius: 50px;
+  display: flex;
+  justify-content: space-between;
+  float: right;
+  border-radius: 50px;
+}
+
+@media (max-width: 1100px) {
+  .screen-lock .start {
+    /* font-size: 15px; */
+  }
+}
+@media (max-width: 880px) {
+  .screen-lock .start {
+    font-size: 15px;
+  }
+}
+@media (max-width: 660px) {
+  .screen-lock .start {
+    width: 35%;
+    font-size: 20px;
+  }
+  .control {
+    display: block;
+    font-size: 15px;
+    background: none;
+    /* margin-bottom: 10px; */
+  }
+}
+@media (max-width: 415px) {
+  .screen-lock .difficulty .dif {
+    font-size: 19px;
+  }
+  .screen-lock .start {
+    width: 35%;
+    font-size: 20px;
+  }
+  .name {
+    font-size: 28px;
+  }
+  .control {
+    display: block;
+    font-size: 15px;
+    background: none;
+    /* margin-bottom: 10px; */
+  }
+  .control .time {
+    padding-bottom: 10px;
+  }
+}
+
+@media (max-width: 405px) {
+  .screen-lock .start {
+    /* width: 35%; */
+    font-size: 15px;
+  }
+  .name {
+    font-size: 25px;
+  }
+  .control {
+    display: block;
+    font-size: 13px;
+    background: none;
+  }
+}
+
+@media (max-width: 360px) {
+  .screen-lock .difficulty .dif {
+    font-size: 15px;
+  }
+  .screen-lock .difficulty button {
+    font-size: 12px;
+  }
+  .screen-lock .start {
+    width: 30%;
+    font-size: 10px;
+  }
+  .name {
+    font-size: 18px;
+  }
+  .control {
+    display: block;
+    font-size: 9px;
+    background: none;
+    /* margin-bottom: 10px; */
+  }
+  .control .time {
+    padding-bottom: 10px;
+  }
 }

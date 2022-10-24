@@ -67,6 +67,8 @@ let gpaScore = document.querySelector("#gpa");
 let levelEasy = document.querySelector("#easy");
 let levelMeduim = document.querySelector("#meduim");
 let levelHard = document.querySelector("#hard");
+let highScore = document.querySelector(".high-score");
+let high = document.querySelector(".high");
 let againButton = document.querySelector("#again");
 let diffLevels = document.querySelectorAll("button");
 timeLeft.innerHTML = Meduim;
@@ -78,7 +80,7 @@ startButton.onclick = function () {
   counterGame();
   this.remove();
   screenLock.remove();
-  setTimeout(startPlay, 3000);
+  setTimeout(startPlay, 4000);
   addEventListener("input", setWord);
 };
 
@@ -97,11 +99,12 @@ function counterGame() {
 
 // To You Try Again
 againButton.onclick = function () {
-  theInput.focus();
   theOpreation();
   startPlay();
   addEventListener("input", setWord);
   theInput.disabled = false;
+  theInput.value = "";
+  theInput.focus();
   againButton.disabled = "none";
   timeLeft.innerHTML = Meduim;
   scoreGot.innerHTML = 0;
@@ -120,7 +123,9 @@ function startPlay() {
     timeLeft.innerHTML--;
     if (timeLeft.innerHTML === "0") {
       clearInterval(start);
+      theInput.value = "End Game";
       theInput.disabled = "none";
+
       againButton.disabled = false;
     }
   }, 1000);
@@ -148,11 +153,15 @@ diffLevels.forEach((ele) => {
 if (window.localStorage.getItem("checkValue")) {
   if (window.localStorage.getItem("checkValue") === "easy") {
     timeLeft.innerHTML = Easy;
+    high.innerHTML = scoreGot;
   } else if (window.localStorage.getItem("checkValue") === "meduim") {
     timeLeft.innerHTML = Meduim;
+    high.innerHTML = scoreGot;
   } else if (window.localStorage.getItem("checkValue") === "hard") {
     timeLeft.innerHTML = Hard;
+    high.innerHTML = scoreGot;
   }
 } else {
   timeLeft.innerHTML = Meduim;
+  high.innerHTML = scoreGot;
 }

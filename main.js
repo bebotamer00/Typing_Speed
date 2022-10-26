@@ -50,10 +50,11 @@ let theWords = [
   "Beef",
   "Foot",
 ];
-
+//Diffiulty Levels
 const Easy = 30;
 const Meduim = 20;
 const Hard = 10;
+// Catch The Elements
 let screenLock = document.querySelector(".screen-lock");
 let counter = document.querySelector(".counter");
 let count = document.querySelector(".count");
@@ -67,14 +68,14 @@ let gpaScore = document.querySelector("#gpa");
 let levelEasy = document.querySelector("#easy");
 let levelMeduim = document.querySelector("#meduim");
 let levelHard = document.querySelector("#hard");
-let highScore = document.querySelector(".high-score");
 let high = document.querySelector(".high");
-let againButton = document.querySelector("#again");
+let againButton = document.getElementById("again");
 let diffLevels = document.querySelectorAll("button");
+let overlay = document.querySelector(".overlay-page");
+
+overlay.remove();
 timeLeft.innerHTML = Meduim;
 scoreTotal.innerHTML = theWords.length;
-againButton.disabled = "none";
-// theInput.disabled = true;
 // To Start The Game
 startButton.onclick = function () {
   counterGame();
@@ -83,7 +84,7 @@ startButton.onclick = function () {
   setTimeout(startPlay, 4000);
   addEventListener("input", setWord);
 };
-
+// Counter To Start The Game
 function counterGame() {
   let start = setInterval(() => {
     count.innerHTML--;
@@ -96,16 +97,15 @@ function counterGame() {
     }
   }, 1000);
 }
-
 // To You Try Again
 againButton.onclick = function () {
+  overlay.remove();
   theOpreation();
   startPlay();
   addEventListener("input", setWord);
   theInput.disabled = false;
   theInput.value = "";
   theInput.focus();
-  againButton.disabled = "none";
   timeLeft.innerHTML = Meduim;
   scoreGot.innerHTML = 0;
 };
@@ -125,12 +125,11 @@ function startPlay() {
       clearInterval(start);
       theInput.value = "End Game";
       theInput.disabled = "none";
-
-      againButton.disabled = false;
+      document.body.appendChild(overlay);
+      high.innerHTML = scoreGot.innerHTML;
     }
   }, 1000);
 }
-
 // Set The Cases Of Word
 function setWord() {
   if (theInput.value.toLowerCase() === theWord.innerHTML.toLowerCase()) {
@@ -149,19 +148,14 @@ diffLevels.forEach((ele) => {
     window.localStorage.setItem("checkValue", e.currentTarget.value);
   });
 });
-
 if (window.localStorage.getItem("checkValue")) {
   if (window.localStorage.getItem("checkValue") === "easy") {
     timeLeft.innerHTML = Easy;
-    high.innerHTML = scoreGot;
   } else if (window.localStorage.getItem("checkValue") === "meduim") {
     timeLeft.innerHTML = Meduim;
-    high.innerHTML = scoreGot;
   } else if (window.localStorage.getItem("checkValue") === "hard") {
     timeLeft.innerHTML = Hard;
-    high.innerHTML = scoreGot;
   }
 } else {
   timeLeft.innerHTML = Meduim;
-  high.innerHTML = scoreGot;
 }

@@ -236,8 +236,7 @@ button {
   .control .score {
     padding-bottom: 10px;
     font-size: 17px;
-    background: none;
-    box-shadow: none;
+    box-shadow: rgb(197, 189, 189) 5px 8px 5px;
     position: static;
   }
   .gpa {
@@ -255,8 +254,16 @@ button {
     font-size: 25px;
   }
   .control {
-    font-size: 10px;
-    background: none;
+    position: absolute;
+    top: 41%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+  }
+  .control .time,
+  .control .score {
+    font-size: 15px;
+    background-color: rgb(213 234 249);
+    box-shadow: rgb(197, 189, 189) 5px 8px 5px;
   }
   .gpa {
     font-size: 30px;

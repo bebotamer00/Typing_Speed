@@ -72,7 +72,7 @@ let high = document.querySelector(".high");
 let againButton = document.getElementById("again");
 let diffLevels = document.querySelectorAll("button");
 let overlay = document.querySelector(".overlay-page");
-
+let noButton = document.querySelector(".no");
 overlay.remove();
 timeLeft.innerHTML = Meduim;
 scoreTotal.innerHTML = theWords.length;
@@ -100,14 +100,22 @@ function counterGame() {
 // To You Try Again
 againButton.onclick = function () {
   overlay.remove();
-  theOpreation();
-  startPlay();
-  addEventListener("input", setWord);
-  theInput.disabled = false;
-  theInput.value = "";
-  theInput.focus();
-  timeLeft.innerHTML = Meduim;
-  scoreGot.innerHTML = 0;
+  document.body.appendChild(screenLock);
+};
+// Thanks
+noButton.onclick = function () {
+  overlay.remove();
+  let overlayPage = document.createElement("div");
+  overlayPage.classList = "overlay";
+  document.body.appendChild(overlayPage);
+  let thanksDiv = document.createElement("div");
+  thanksDiv.classList = "thanks-div";
+  overlayPage.appendChild(thanksDiv);
+  let thanksP = document.createElement("p");
+  thanksP.classList = "thanks-p";
+  thanksP.innerHTML = `Thanks For Trying The Game <br /> <i class="fa-solid fa-heart"></i>`;
+  thanksDiv.appendChild(thanksP);
+  setTimeout(window.close, 3000);
 };
 // Get Random Word
 function theOpreation() {

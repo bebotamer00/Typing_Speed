@@ -20,6 +20,7 @@
       <div class="difficulty">
         <span class="dif">Difficulty Level : </span>
         <button
+          class="btn-outline-dark"
           value="easy"
           type="button"
           id="easy"
@@ -28,6 +29,7 @@
           Easy
         </button>
         <button
+          class="btn-outline-primary"
           value="meduim"
           type="button"
           id="meduim"
@@ -36,6 +38,7 @@
           Meduim
         </button>
         <button
+          class="btn-outline-danger"
           value="hard"
           type="button"
           id="hard"
@@ -65,9 +68,16 @@
           </div>
         </div>
         <div class="gpa" id="gpa"></div>
-        <button type="button" class="btn-outline-success" id="again">
-          Try Again
-        </button>
+        <div class="overlay-page">
+          <div class="overlay">
+            <div class="high-score">
+              <p>Score : <span class="high"></span></p>
+              <button type="button" class="btn-outline-success" id="again">
+                Try Again
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <script src="main.js"></script>
